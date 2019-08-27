@@ -1,0 +1,9 @@
+---
+# tasks file for vpc-role
+
+# include YAML task to create VPC
+- include_tasks: create_vpc.yml
+
+# include YAML task to create Internet gateway
+# and add to VPC
+- include_tasks: create_igw_vpc.yml

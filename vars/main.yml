@@ -1,0 +1,14 @@
+---
+# vars file for vpc-role
+##############################################
+# AWS Credentials                            #
+##############################################
+aws_access_key: "THISISMYAWSACCESSKEY"
+aws_secret_key: "ThisIsMyAwSSecretKey"
+aws_region:     "eu-west-1"
+
+##############################################
+# VPC Information                            #
+##############################################
+vpc_name:       "My VPC"
+vpc_cidr_block: "10.0.0.0/16"
