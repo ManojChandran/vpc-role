@@ -17,11 +17,11 @@ vpc_cidr_block: "10.0.0.0/16"
 ####################################################
 vpc_network_map:
   # public subnet
-  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "public"  aws_az_cidr: "10.0.0.0/24" subnet_az_reg: "" }
-  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "public"  aws_az_cidr: "10.0.2.0/24" subnet_az_reg: ""}
+  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "public", aws_az_cidr: "10.0.0.0/24", subnet_az_reg: "" }
+  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "public",  aws_az_cidr: "10.0.2.0/24", subnet_az_reg: ""}
   # private subnet
-  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "private" aws_az_cidr: "10.0.1.0/24" subnet_az_reg: ""}
-  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "private" aws_az_cidr: "10.0.3.0/24" subnet_az_reg: ""}
+  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "private", aws_az_cidr: "10.0.1.0/24", subnet_az_reg: ""}
+  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "private", aws_az_cidr: "10.0.3.0/24", subnet_az_reg: ""}
 
 ####################################################
 # Access location CIDR defs (used in NACLs and SGs)#
