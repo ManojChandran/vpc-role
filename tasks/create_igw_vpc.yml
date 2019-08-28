@@ -1,5 +1,5 @@
+---
 # create Internet gateway for the VPC
-
 - name: Create the Internet gateway for the VPC
   ec2_vpc_igw:
     vpc_id:           "{{ vpc_id }}"

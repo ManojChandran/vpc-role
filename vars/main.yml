@@ -4,9 +4,6 @@
 # AWS Credentials                                  #
 ####################################################
 aws_region:     "us-east-1"
-#aws_az1:        "{{ aws_region }}a"
-#aws_az2:        "{{ aws_region }}c"
-#aws_az3:        "{{ aws_region }}b"
 
 ####################################################
 # VPC Information                                  #
@@ -16,21 +13,15 @@ vpc_name:       "My VPC"
 vpc_cidr_block: "10.0.0.0/16"
 
 ####################################################
-# Public Subnet CIDR defs [even numbers used]      #
+# AZ's, Subnets and CIDR's                         #
 ####################################################
-public_subnet_cidr:
-  - aws_az:       "{{ aws_region }}a"
-    aws_az_cidr:  "10.0.0.0/24"
-  - aws_az:       "{{ aws_region }}b"
-    aws_az_cidr:  "10.0.2.0/24"
-#  - aws_az3_cidr:  "10.0.4.0/24"
-
-####################################################
-# Private Subnet CIDR defs [odd numbers used]      #
-####################################################
-#aws_az1_private_subnet_cidr: "10.0.1.0/24"
-#aws_az2_private_subnet_cidr: "10.0.3.0/24"
-#aws_az3_private_subnet_cidr: "10.0.5.0/24"
+vpc_network_map:
+  # public subnet
+  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "public"  aws_az_cidr: "10.0.0.0/24" subnet_az_reg: "" }
+  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "public"  aws_az_cidr: "10.0.2.0/24" subnet_az_reg: ""}
+  # private subnet
+  - { aws_az: "{{ aws_region }}a", aws_subnet_type: "private" aws_az_cidr: "10.0.1.0/24" subnet_az_reg: ""}
+  - { aws_az: "{{ aws_region }}b", aws_subnet_type: "private" aws_az_cidr: "10.0.3.0/24" subnet_az_reg: ""}
 
 ####################################################
 # Access location CIDR defs (used in NACLs and SGs)#

@@ -1,3 +1,4 @@
+---
 # use the Ansible module to create our VPC, saving the output into `create_vpc`
 - name: create VPC
   ec2_vpc_net:
