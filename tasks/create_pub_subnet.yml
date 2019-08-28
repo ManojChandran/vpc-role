@@ -1,0 +1,14 @@
+# create subnets
+
+- name: Create public subnet
+  ec2_vpc_subnet:
+    vpc_id:           "{{ vpc_id }}"
+    cidr:             "{{ item.aws_az_cidr }}"
+    az:               "{{ item.aws_az }}"
+    state:            "present"
+  register: pub_subnet_az1
+  with_items: public_subnet_cidr
+
+- name: Create variable for AZ1 public subnet
+  set_fact:
+    public_subnet_az1_id: "{{ pub_subnet_az1.subnet.id }}"
