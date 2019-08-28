@@ -7,3 +7,7 @@
 # include YAML task to create Internet gateway
 # and add to VPC
 - include_tasks: create_igw_vpc.yml
+
+# include YAML task to create public subnet
+# and add to VPC
+- include_tasks: create_pub_subnet.yml
