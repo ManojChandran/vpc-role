@@ -11,5 +11,5 @@
   with_items: "{{ vpc_network_map_pub }}"
 
 - debug:
-    msg: "register id {{ item.subnet.id }} "
+    msg: "register id {{ item }} "
   with_items: "{{ pub_subnet_az }}"

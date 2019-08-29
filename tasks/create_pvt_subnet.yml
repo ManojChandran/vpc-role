@@ -11,5 +11,5 @@
   with_items: "{{ vpc_network_map_pvt }}"
 
 - debug:
-    msg: "register id {{ item.subnet.id }} "
+    msg: "register id {{ item }} "
   with_items: "{{ pvt_subnet_az }}"
