@@ -12,4 +12,4 @@
 
 - debug:
     msg: "{{ item }}"
-  with_items: "{{ pub_subnet_az }}"
+  with_items: "{{ pub_subnet_az.results }}"
