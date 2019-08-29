@@ -15,3 +15,6 @@
 
 - name: Include YAML task to create NAT gateway
   include_tasks: create_nat_gateway.yml
+
+- name: Include YAML task to create public route table
+  include_tasks: create_pub_route_tab.yml
