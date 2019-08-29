@@ -11,7 +11,7 @@
 
 - name: Create variable for AZ1 NAT Gateway
   set_fact:
-    nat_gateway_az_id_group: "{{ nat_gateway_az_id_group }} + ['{{ item }}']"
+    nat_gateway_az_id_group: "{{ nat_gateway_az_id_group }} + ['{{ item.nat_gateway_id }}']"
   with_items: "{{ nat_gateway_az.results }}"
 
 # remove once the changes are tested
