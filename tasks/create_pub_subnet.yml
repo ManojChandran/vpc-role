@@ -10,6 +10,11 @@
   register: "pub_subnet_az"
   with_items: "{{ vpc_network_map_pub }}"
 
-- debug:
-    msg: "{{ item.subnet.id }}"
+- name: Create variable for AZ1 public subnet
+  set_fact:
+    public_subnet_az1_id: "{{ pub_subnet_az_id }} + ['{{ item.subnet.id }}']"
   with_items: "{{ pub_subnet_az.results }}"
+
+- debug:
+    msg: "{{ item }}"
+  with_items: "{{ pub_subnet_az_id }}"
