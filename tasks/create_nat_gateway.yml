@@ -1,0 +1,19 @@
+---
+- name: Create AZ1 NAT Gateway
+  ec2_vpc_nat_gateway:
+    state: present
+    subnet_id: "{{ item }}"
+    wait: yes
+    if_exist_do_not_create: true
+  register: "nat_gateway_az"
+  with_items: "{{ public_subnet_az_id_group }}"
+
+- name: Create variable for AZ1 NAT Gateway
+  set_fact:
+    nat_gateway_az_id_group: "{{ nat_gateway_az_id_group }} + ['{{ item }}']"
+  with_items: "{{ nat_gateway_az.results }}"
+
+# remove once the changes are tested
+- debug:
+    msg: "{{ item }}"
+  with_items: "{{ nat_gateway_az_id_group }}"
