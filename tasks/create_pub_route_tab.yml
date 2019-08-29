@@ -3,6 +3,7 @@
 
 - name: Create public route table and add Internet gateway
   ec2_vpc_route_table:
+    region: "{{ aws_region }}"
     vpc_id: "{{ vpc_id }}"
     subnets: "{{ item }}"
     routes:
