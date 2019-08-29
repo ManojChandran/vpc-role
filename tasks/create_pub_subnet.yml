@@ -11,5 +11,5 @@
   with_items: "{{ vpc_network_map_pub }}"
 
 - debug:
-    msg: "{{ item }}"
+    msg: "{{ item.invocation }}"
   with_items: "{{ pub_subnet_az.results }}"
