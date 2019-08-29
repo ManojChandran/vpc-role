@@ -12,4 +12,4 @@
 
 - debug:
     msg: "register id {{ item }} "
-  with_items: "{{ pvt_subnet_az }}"
+  with_items: "{{ pvt_subnet_az.results }}"
