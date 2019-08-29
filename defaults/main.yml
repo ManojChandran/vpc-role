@@ -1,2 +1,8 @@
 ---
 # defaults file for vpc-role
+
+
+####################################################
+#  public subnet ID groups
+####################################################
+public_subnet_az_id_group: []

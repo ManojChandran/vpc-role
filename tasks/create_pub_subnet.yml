@@ -12,9 +12,9 @@
 
 - name: Create variable for AZ1 public subnet
   set_fact:
-    public_subnet_az1_id: "{{ public_subnet_az1_id }} + ['{{ item.subnet.id }}']"
+    public_subnet_az_id_group: "{{ public_subnet_az_id_group }} + ['{{ item.subnet.id }}']"
   with_items: "{{ pub_subnet_az.results }}"
 
 - debug:
     msg: "{{ item }}"
-  with_items: "{{ public_subnet_az1_id }}"
+  with_items: "{{ public_subnet_az_id_group }}"
