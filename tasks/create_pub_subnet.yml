@@ -7,7 +7,7 @@
     cidr:             "{{ item.aws_az_cidr }}"
     az:               "{{ item.aws_az }}"
     state:            "present"
-  register: pub_subnet_az
+  register: "pub_subnet_az"
   with_items: "{{ vpc_network_map_pub }}"
 
 - debug:
