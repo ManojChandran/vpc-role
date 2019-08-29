@@ -1,0 +1,19 @@
+---
+# create private route table and connect to NAT
+
+- name: club az's
+  set_fact:
+        pvt_az_nat_group: "{{ pvt_az_nat_group }} + ['{{ item }}']"
+  register: "r"
+  with_items: "{{ private_subnet_az_id_group }}"
+
+- name: club two list
+  set_fact:
+        pvt_az_nat_group: "{{ pvt_az_nat_group }} + ['{{ item }}']"
+  register: "r"
+  with_items: "{{ nat_gateway_az_id_group }}"
+
+# remove once the changes are tested
+- debug:
+    msg: "{{ item.ansible_facts.pvt_az_nat_group }}"
+  with_items: "{{ r.results }}"
