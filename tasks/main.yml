@@ -7,12 +7,8 @@
 - name: Include YAML task to create Internet gateway
   include_tasks: create_igw_vpc.yml
 
-
-- name: Include YAML task to sortout AZ's
-  include_tasks: create_pub_subnet.yml
-
 - name: Include YAML task to create public subnet
   include_tasks: create_pub_subnet.yml
 
-- name: Include YAML task to create private subnet
-  include_tasks: create_pvt_subnet.yml
+#- name: Include YAML task to create private subnet
+#  include_tasks: create_pvt_subnet.yml
