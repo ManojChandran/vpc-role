@@ -16,3 +16,8 @@ private_subnet_az_id_group: []
 #  private NAT ID groups
 ####################################################
 nat_gateway_az_id_group: []
+
+####################################################
+#  public route table groups
+####################################################
+public_route_table_group: []
