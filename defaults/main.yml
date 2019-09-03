@@ -22,6 +22,6 @@ nat_gateway_az_id_group: []
 public_route_table_group: []
 
 ####################################################
-#  public route table groups
+#  private route table groups
 ####################################################
-pvt_az_nat_group: []
+private_route_table_group: []

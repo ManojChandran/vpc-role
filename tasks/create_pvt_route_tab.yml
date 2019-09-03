@@ -5,5 +5,19 @@
   ec2_vpc_route_table:
     region: "{{ aws_region }}"
     vpc_id: "{{ vpc_id }}"
-    subnets: "{{ private_subnet_az_id_group }}"
-#  with_items: "{{  }}"
+    subnets: "{{ private_subnet_az_id_group[ item.aws_occ ] }}"
+    routes:
+      - dest: "{{ public_cidr }}"
+        gateway_id: "{{ nat_gateway_az_id_group[ item.aws_occ ] }}"
+  register: "private_route_table"
+  with_items: "{{ vpc_network_map_pvt }}"
+
+- name: Create variable to hold public route table
+  set_fact:
+    private_route_table_group: "{{ private_route_table_group }} + ['{{ item }}']"
+  with_items: "{{ private_route_table.results }}"
+
+# remove once the changes are tested
+- debug:
+    msg: "{{ item }}"
+  with_items: "{{ private_route_table_group }}"
