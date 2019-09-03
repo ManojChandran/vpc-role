@@ -21,3 +21,15 @@
 
 - name: Include YAML task to create private route table
   include_tasks: create_pvt_route_tab.yml
+
+- name: Include YAML task to set public NACL rule
+  include_tasks: create_pub_NACL_rule.yml
+
+- name: Include YAML task to set private NACL rule
+  include_tasks: create_pvt_NACL_rule.yml
+
+- name: Include YAML task to set public security group
+  include_tasks: create_pub_security_group.yml
+
+- name: Include YAML task to set private security group
+  include_tasks: create_pvt_security_group.yml

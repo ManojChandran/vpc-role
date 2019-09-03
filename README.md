@@ -24,20 +24,42 @@ Role Variables
 A description of the
 
 ```
-    ---
     # vars file for vpc-role
-    ##############################################
-    # AWS Credentials                            #
-    ##############################################
-    aws_access_key: "THISISMYAWSACCESSKEY"
-    aws_secret_key: "ThisIsMyAwSSecretKey"
-    aws_region:     "eu-west-1"
+    ####################################################
+    # AWS Credentials                                  #
+    ####################################################
+    aws_region:     "us-east-1"
 
-    ##############################################
-    # VPC Information                            #
-    ##############################################
+    ####################################################
+    # VPC Information                                  #
+    ####################################################
     vpc_name:       "My VPC"
+    #vpc_name: "vpc-{{ aws_env }}"
     vpc_cidr_block: "10.0.0.0/16"
+
+    ####################################################
+    # AZ's, Subnets and CIDR's                         #
+    ####################################################
+    vpc_network_map_pub:
+      # public subnet
+      - { aws_occ: 0, aws_az: "{{ aws_region }}a", aws_az_cidr: "10.0.0.0/24" }
+      - { aws_occ: 1, aws_az: "{{ aws_region }}b", aws_az_cidr: "10.0.2.0/24" }
+
+    vpc_network_map_pvt:
+        # private subnet
+      - { aws_occ: 0, aws_az: "{{ aws_region }}a", aws_az_cidr: "10.0.1.0/24" }
+      - { aws_occ: 1, aws_az: "{{ aws_region }}b", aws_az_cidr: "10.0.3.0/24" }
+
+    ####################################################
+    # Access location CIDR defs (used in NACLs and SGs)#
+    ####################################################
+    public_cidr: "0.0.0.0/0"
+
+    ####################################################
+    # security group parameters                        #
+    ####################################################
+    private_sg_name: "PrivateSecurityGroup"
+    public_sg_name:  "PublicSecurityGroup"
 ```
 
 Dependencies
@@ -67,6 +89,3 @@ Author: Manoj Chandran
 Email: manoj.meparambu@gmail.com
 
 ------------------
-https://github.com/rcrelia/aws-vpc-scenario2
-
-https://jeremievallee.com/2016/07/27/aws-vpc-ansible.html
