@@ -5,9 +5,5 @@
   ec2_vpc_route_table:
     region: "{{ aws_region }}"
     vpc_id: "{{ vpc_id }}"
-    subnets:
-      - "{{ item.private_subnet_az }}"
-    routes:
-      - dest: "{{ public_cidr }}"
-        gateway_id: "{{ item.nat_gateway_id }}"
-  with_items: "{{ pvt_az_nat_group }}"
+    subnets: "{{ item }}"
+  with_items: "{{ private_subnet_az_id_group }}"
