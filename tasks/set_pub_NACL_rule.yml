@@ -12,7 +12,7 @@
 
 - name: Create variable for AZ1 NAT Gateway
   set_fact:
-    public_networkacl_id_group: "{{ public_networkacl_id_group }} + ['{{ item.nacl_id }}']"
+    public_networkacl_id_group: "{{ public_networkacl_id_group }} + ['{{ item }}']"
   with_items: "{{ public_networkacl.results }}"
 
 # remove once the changes are tested
