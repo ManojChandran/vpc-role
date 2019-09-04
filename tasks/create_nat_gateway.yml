@@ -1,5 +1,5 @@
 ---
-- name: Create AZ1 NAT Gateway
+- name: Create AZ NAT Gateway
   ec2_vpc_nat_gateway:
     region:           "{{ aws_region }}"
     state: present
