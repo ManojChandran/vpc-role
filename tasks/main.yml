@@ -25,8 +25,8 @@
 - name: Include YAML task to set public NACL rule
   include_tasks: set_pub_NACL_rule.yml
 
-#- name: Include YAML task to set private NACL rule
-#  include_tasks: create_pvt_NACL_rule.yml
+- name: Include YAML task to set private NACL rule
+  include_tasks: set_pub_NACL_rule.yml
 
 #- name: Include YAML task to set public security group
 #  include_tasks: create_pub_security_group.yml

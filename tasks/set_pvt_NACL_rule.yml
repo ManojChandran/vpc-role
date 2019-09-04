@@ -1,0 +1,21 @@
+---
+# "Removed ingress and egress rules - defaults to deny all"
+- name: Create and associate private network ACL with private subnets
+  ec2_vpc_nacl:
+    region:           "{{ aws_region }}"
+    vpc_id:           "{{ vpc_id }}"
+    name:             "{{ vpc_name}}_private_networkacl"
+    subnets:          "{{ item }}"
+    state: present
+  register: "private_networkacl"
+  with_items: "{{ private_subnet_az_id_group }}"
+
+- name: Create variable for AZ1 NAT Gateway
+  set_fact:
+    private_networkacl_id_group: "{{ private_networkacl_id_group }} + ['{{ item.nacl_id }}']"
+  with_items: "{{ private_networkacl.results }}"
+
+# remove once the changes are tested
+- debug:
+    msg: "{{ item }}"
+  with_items: "{{ private_networkacl_id_group }}"
