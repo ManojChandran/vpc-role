@@ -12,7 +12,7 @@
 
 - name: Create variable list for AZ public subnet
   set_fact:
-    private_subnet_az_id_group: "{{ private_subnet_az_id_group }} + ['{{ item.subnet }}']"
+    private_subnet_az_id_group: "{{ private_subnet_az_id_group }} + ['{{ item.subnet.id }}']"
   with_items: "{{ pvt_subnet_az.results }}"
 
 # remove once the changes are tested
