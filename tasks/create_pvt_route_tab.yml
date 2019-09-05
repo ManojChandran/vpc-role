@@ -1,7 +1,7 @@
 ---
 # create private route table and connect to NAT
 
-- name: Create AZ1 private route table
+- name: Create private route table
   ec2_vpc_route_table:
     region: "{{ aws_region }}"
     vpc_id: "{{ vpc_id }}"
