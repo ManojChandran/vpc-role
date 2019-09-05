@@ -14,7 +14,7 @@
 
 - name: Create variable to hold public route table
   set_fact:
-    private_route_table_group: "{{ private_route_table_group }} + ['{{ item.id }}']"
+    private_route_table_group: "{{ private_route_table_group }} + ['{{ item }}']"
   with_items: "{{ private_route_table.results }}"
 
 # remove once the changes are tested
