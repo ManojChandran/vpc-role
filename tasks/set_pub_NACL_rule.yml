@@ -10,9 +10,9 @@
   register: "public_networkacl"
   with_items: "{{ public_subnet_az_id_group }}"
 
-- name: Create variable for AZ1 NAT Gateway
+- name: Create variable for NACL id group
   set_fact:
-    public_networkacl_id_group: "{{ public_networkacl_id_group }} + ['{{ item }}']"
+    public_networkacl_id_group: "{{ public_networkacl_id_group }} + ['{{ item.nacl_id }}']"
   with_items: "{{ public_networkacl.results }}"
 
 # remove once the changes are tested
