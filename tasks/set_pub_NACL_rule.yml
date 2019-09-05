@@ -5,10 +5,11 @@
     region:           "{{ aws_region }}"
     vpc_id:           "{{ vpc_id }}"
     name:             "{{ vpc_name}}_public_networkacl"
-    subnets:          "{{ item }}"
+#    subnets:          "{{ item }}"
+    subnets:          public_subnet_az_id_group
     state: present
   register: "public_networkacl"
-  with_items: "{{ public_subnet_az_id_group }}"
+#  with_items: "{{ public_subnet_az_id_group }}"
 
 - name: Create variable for NACL id group
   set_fact:
