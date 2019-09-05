@@ -29,9 +29,9 @@ private_route_table_group: []
 ####################################################
 #  public NACL table groups
 ####################################################
-public_networkacl_id_group: 
+public_networkacl_id_group: []
 
 ####################################################
 #  private NACL table groups
 ####################################################
-private_networkacl_id_group:
+private_networkacl_id_group: []
