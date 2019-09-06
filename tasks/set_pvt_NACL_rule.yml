@@ -6,8 +6,21 @@
     vpc_id:           "{{ vpc_id }}"
     name:             "{{ vpc_name }}_private_networkacl"
     subnets:          "{{ item }}"
-    ingress:          "{{ pvt_nacl_ingress }}"
-    egress:           "{{ pvt_nacl_egress }}"
+    ingress:          [
+            # rule no, protocol, allow/deny, cidr, icmp_code, icmp_type, port from, port to
+            [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+            [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443]
+    #        [120, 'tcp', 'allow', "{{ vpc_cidr_block }}", null, null, 22, 22],
+    #        [140, 'tcp', 'allow', "{{ public_cidr }}", null, null, 1024, 65535],
+    #        [150, 'icmp', 'allow', "{{ vpc_cidr_block }}", -1, -1]
+         ]
+    egress:           [
+            [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+            [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443]
+    #        [120, 'tcp', 'allow', "{{ vpc_cidr }}", null, null, 1024, 65535],
+    #        [150, 'tcp', 'allow', "{{ private_subnet_az_cidr }}", null, null, 22, 22],
+    #        [160, 'icmp', 'allow', "{{ vpc_cidr }}", -1, -1]
+         ]
     state: present
   register: "private_networkacl"
   with_items: "{{ private_subnet_az_id_group }}"
