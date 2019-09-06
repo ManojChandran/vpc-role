@@ -42,8 +42,8 @@ public_sg_name:  "PublicSecurityGroup"
 pvt_nacl_ingress:
 [
         # rule no, protocol, allow/deny, cidr, icmp_code, icmp_type, port from, port to
-        [100, 'tcp', 'allow', "{{ public_cidr }}", null, null, 80, 80],
-        [110, 'tcp', 'allow', "{{ public_cidr }}", null, null, 443, 443]
+        [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+        [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443]
 #        [120, 'tcp', 'allow', "{{ vpc_cidr_block }}", null, null, 22, 22],
 #        [140, 'tcp', 'allow', "{{ public_cidr }}", null, null, 1024, 65535],
 #        [150, 'icmp', 'allow', "{{ vpc_cidr_block }}", -1, -1]
@@ -54,8 +54,8 @@ pvt_nacl_ingress:
 ####################################################
 pvt_nacl_egress:
 [
-        [100, 'tcp', 'allow', "{{ public_cidr }}", null, null, 80, 80],
-        [110, 'tcp', 'allow', "{{ public_cidr }}", null, null, 443, 443]
+        [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+        [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443]
 #        [120, 'tcp', 'allow', "{{ vpc_cidr }}", null, null, 1024, 65535],
 #        [150, 'tcp', 'allow', "{{ private_subnet_az_cidr }}", null, null, 22, 22],
 #        [160, 'icmp', 'allow', "{{ vpc_cidr }}", -1, -1]
@@ -67,9 +67,9 @@ pvt_nacl_egress:
 pub_nacl_ingress:
 [
         # rule no, protocol, allow/deny, cidr, icmp_code, icmp_type, port from, port to
-        [100, 'tcp', 'allow', "{{ public_cidr }}", null, null, 80, 80],
-        [110, 'tcp', 'allow', "{{ public_cidr }}", null, null, 443, 443],
-        [140, 'tcp', 'allow', "{{ public_cidr }}", null, null, 1024, 65535]
+        [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+        [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443],
+        [140, 'tcp', 'allow', '0.0.0.0/0', null, null, 1024, 65535]
 #        [150, 'icmp', 'allow', "{{ vpc_cidr }}", -1, -1]
      ]
 
@@ -78,10 +78,10 @@ pub_nacl_ingress:
 ####################################################
 pub_nacl_egress:
 [
-        [100, 'tcp', 'allow', "{{ public_cidr }}", null, null, 80, 80],
-        [110, 'tcp', 'allow', "{{ public_cidr }}", null, null, 443, 443],
+        [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
+        [110, 'tcp', 'allow', '0.0.0.0/0', null, null, 443, 443],
 #        [130, 'tcp', 'allow', "{{ private_subnet_az_cidr }}", null, null, 3306, 3306],
-        [140, 'tcp', 'allow', "{{ public_cidr }}", null, null, 1024, 65535]
+        [140, 'tcp', 'allow', '0.0.0.0/0', null, null, 1024, 65535]
 #        [150, 'tcp', 'allow', "{{ private_subnet_az1_cidr }}", null, null, 22, 22],
 #        [151, 'tcp', 'allow', "{{ private_subnet_az2_cidr }}", null, null, 22, 22],
 #        [160, 'icmp', 'allow', "{{ public_cidr }}", -1, -1]
