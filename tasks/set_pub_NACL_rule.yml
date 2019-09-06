@@ -4,10 +4,10 @@
   ec2_vpc_nacl:
     region:           "{{ aws_region }}"
     vpc_id:           "{{ vpc_id }}"
-    name:             "{{ vpc_name}}_public_networkacl"
+    name:             "{{ vpc_name }}_public_networkacl"
     subnets:          "{{ item }}"
-    ingress: "{{ pvt_nacl_ingress }}"
-    egress: "{{ pvt_nacl_egress }}"
+    ingress:          "{{ pvt_nacl_ingress }}"
+    egress:           "{{ pvt_nacl_egress }}"
     state: present
   register: "public_networkacl"
   with_items: "{{ public_subnet_az_id_group }}"
