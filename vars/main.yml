@@ -39,7 +39,7 @@ public_sg_name:  "PublicSecurityGroup"
 ####################################################
 # Private NACL ingress                             #
 ####################################################
-pvt_nacl_ingress:
+pvt_nacl_ingress: 
 [
         # rule no, protocol, allow/deny, cidr, icmp_code, icmp_type, port from, port to
         [100, 'tcp', 'allow', '0.0.0.0/0', null, null, 80, 80],
