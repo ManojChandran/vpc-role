@@ -2,26 +2,15 @@ vpc-role
 =========
 
 A simple Ansible role to create AWS VPC setup.
-This role provides:
-
-  a VPC across two AZs
-  an Internet gateway and adds to VPC
-  a public and a private subnet in each AZ
-
 
 Pending tasks
 ------------
-Need to check on how to pass variable vpc_id with different task YAML files
-Need to check on the origin and definition of the variable aws_env
-
-
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+NA
 
 Role Variables
 --------------
 
-A description of the
+While creating "vpc_network_map_pub/pvt", please make sure to add the format with "aws_occ".
 
 ```
     # vars file for vpc-role
@@ -79,7 +68,7 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
@@ -87,5 +76,7 @@ Author Information
 Author: Manoj Chandran
 
 Email: manoj.meparambu@gmail.com
+
+Please send support requests, bug reports or feature proposals via Github.
 
 ------------------
